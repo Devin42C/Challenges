@@ -5,11 +5,20 @@ class Image
   # initialize, first method to run, assign @image
   def initialize(image)
     @image = image
-    find_ones
+    manhattan
   end
 
   #find location of 1
   #store location of index = storedOnes
+
+  def manhattan
+    print "How many times of Manhattan distance: "
+    user=gets.chomp.to_i
+    user.times do 
+      find_ones
+    end
+  end
+
   def find_ones
     storedOnes = []
   #loop through first part of array  
@@ -23,8 +32,9 @@ class Image
         storedOnes << [row_num, col_num] if idx == 1
       end
     end
-    #loop length of storedOnes and pixel transform 
-    storedOnes.each do |value|
+      #loop length of storedOnes and pixel transform 
+      storedOnes.each do |value|
+      #print "COUNT"
       #left
       @image[value[0]][value[1]-1] = 1 unless value[1] == 0
       #right
@@ -33,7 +43,7 @@ class Image
       @image[value[0]-1][value[1]] = 1 unless value[0] == 0
       #down
       @image[value[0]+1][value[1]] = 1 unless value[0] >= @image.length-1
-    end
+      end
   end 
   # output image, join array to clean up output
   # "\n" is for spacing after each line
@@ -46,14 +56,17 @@ class Image
 end
 
 image = Image.new([
-  [0, 0, 0, 0],
-  [0, 0, 1, 0],
-  [0, 1, 0, 0],
-  [0, 0, 0, 0],
-  [0, 0, 0, 0],
-  [0, 0, 0, 0],
-  [0, 0, 0, 1],
-  [0, 0, 0, 0],
-
+  [0, 0, 0, 0,0,0,0,0,0,0,0,0],
+  [0, 0, 0, 0,0,0,0,0,0,0,0,0],
+  [0, 0, 0, 0,0,0,0,0,0,0,0,0],
+  [0, 0, 0, 0,0,0,0,0,0,0,0,0],
+  [0, 0, 0, 0,0,0,0,0,0,0,0,0],
+  [0, 0, 0, 0,0,1,0,0,0,0,0,0],
+  [0, 0, 0, 0,0,0,0,0,0,0,0,0],
+  [0, 0, 0, 0,0,0,0,0,0,0,0,0],
+  [0, 0, 0, 0,0,0,0,0,0,0,0,0],
+  [0, 0, 0, 0,0,0,0,0,0,0,0,0],
+  [0, 0, 0, 0,0,0,0,0,0,0,0,0],
+  [0, 0, 0, 0,0,0,0,0,0,0,0,0],
   ])
 image.output_image
