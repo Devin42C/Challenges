@@ -8,9 +8,6 @@ class Image
     manhattan
   end
 
-  #find location of 1
-  #store location of index = storedOnes
-
   def manhattan
     print "How many times of Manhattan distance: "
     user=gets.chomp.to_i
@@ -19,6 +16,8 @@ class Image
     end
   end
 
+   #find location of 1
+  #store location of index = storedOnes
   def find_ones
     storedOnes = []
   #loop through first part of array  
